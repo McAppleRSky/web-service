@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spring Security Example </title>
+</head>
+<body>
+Add new user
+{{#message}}
+    {{message}}
+{{/message}}
+<form action="/signup" method="post">
+    <div>
+        <label>User Name :<input type="text" name="username"/></label>
+    </div>
+    <div>
+        <label>Password :<input type="password" name="password"/></label>
+    </div>
+<!--    https://gist.github.com/drucoder/ecb7b4c077c58fe68c300c23a342237b -->
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <div>
+        <input type="submit" value="Sign up"/>
+    </div>
+</form>
+</body>
+</html>

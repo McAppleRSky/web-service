@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.mrs'
+version '0.0.1-SNAPSHOT'
+compileJava   {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    jetty9_version = "9.4.44.v20210927"
+    freemarker_version = "2.3.31"
+}
+
+dependencies {
+    implementation "org.eclipse.jetty:jetty-server:$jetty9_version"
+    implementation "org.eclipse.jetty:jetty-webapp:$jetty9_version"
+    implementation "org.freemarker:freemarker:$freemarker_version"
+}

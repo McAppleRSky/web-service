@@ -1,0 +1,13 @@
+version: '3'
+services:
+  pgdb-course:
+    environment:
+    - DB_NAME=course
+    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+    - /tmp/course/var/lib/pg/data:/var/lib/postgresql/data
+    - /tmp/course/tmp/pgdb:/docker-entrypoint-initdb.d:z
+    image: 'postgres:13.4-alpine'
+    ports:
+    - 5432:5432
+    restart: always

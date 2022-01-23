@@ -1,0 +1,2 @@
+CREATE USER 'tully'@'127.0.0.1' IDENTIFIED BY 'tully';
+GRANT ALL PRIVILEGES ON *.* TO 'tully'@'127.0.0.1';

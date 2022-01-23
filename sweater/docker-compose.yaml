@@ -1,0 +1,24 @@
+version: "3"
+services:
+  postgres:
+    image: "library/${DB_IMAGE}"
+#    build:
+#      context: ./postgres
+#      target: postgres_with_script
+    container_name: postgres
+    restart: on-failure
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+#      POSTGRES_USER: fake_database_user
+#      POSTGRES_PASSWORD: fake_database_password
+    volumes:
+#      - /etc/passwd:/etc/passwd:ro
+#      - /etc/group:/etc/group:ro
+      - /tmp/sweater/var/lib/psql/data:/var/lib/postgresql/data
+#      - ./postgres/:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
+#volumes:
+#  db-data:

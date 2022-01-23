@@ -1,0 +1,5 @@
+package frontend.servlet.tool;
+
+public enum ScriptStatus {
+    SCRIPT_POSITIVE, SCRIPT_NEGATIVE, SCRIPT_0, SCRIPT_1, SCRIPT_2, SCRIPT_3, SCRIPT_4, SCRIPT_5, SCRIPT_6, SCRIPT_7, SCRIPT_8, SCRIPT_9;
+}

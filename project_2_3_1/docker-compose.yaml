@@ -1,0 +1,40 @@
+version: "3"
+services:
+  mysql_stepik:
+    image: mysql:8.0.17
+    container_name: mysql_stepik
+    ports:
+      - 3306:3306
+    network_mode: "host"
+    restart: unless-stopped
+    command: '--default-authentication-plugin=mysql_native_password'
+#    command: [ "mysqld",
+#               "--loose-group-replication-local-address=mysql_stepik:3306" ]
+#    env_file:
+#      - ./db.env
+    environment:
+#      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
+      MYSQL_USER: ${USER}
+      MYSQL_PASSWORD: ${PASSWORD}
+      MYSQL_DATABASE: ${DATABASE}
+    volumes:
+      - /tmp/stepik/var/lib/mysql:/var/lib/mysql
+      - ./mysql-dump:/docker-entrypoint-initdb.d
+#      - ./privileges.sql:/docker-entrypoint-initdb.d/privileges.sql
+#    command: /bin/sh -c "/tmp/privileges.sql"
+#    networks:
+#      default:
+#        ipv4_address: 172.17.0.44
+#
+#networks:
+#  default:
+#    driver: host
+#    driver_opts:
+#      com.docker.network.bridge.name: nw-desk
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet: 192.168.12.0/24
+#          gateway: 192.168.12.1
+#    enable_ipv6: false

@@ -1,0 +1,2 @@
+--CREATE SCHEMA sweeter;
+--SET search_path TO sweeter, public;
